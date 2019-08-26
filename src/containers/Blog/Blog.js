@@ -10,18 +10,23 @@ class Blog extends Component {
     // State
     state = {
         posts: [],
-        selectedPostId: null
+        selectedPostId: null,
+        error: false
     }
 
     // Lifecycles
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios
+        .get('https://jsonplaceholder.typicode.com/posts')
         .then(res => {
             const recentPosts = res.data.slice(0, 4)
             const updatedPosts = recentPosts.map(post => {
                 return {...post, author: 'Daniel'}
             })
             this.setState({posts: updatedPosts})
+        })
+        .catch(err => {
+            this.setState({error: true})         
         })
     }
 
@@ -31,12 +36,15 @@ class Blog extends Component {
     }
 
     render () {
-        const posts = this.state.posts.map(post => (
-            <Post key={post.id} 
-            title={post.title} 
-            author={post.author}
-            clicked={() => this.postSelectedHandler(post.id)} />
-        ))
+        let posts = <h4 style={{textAlign: 'center', color: 'red'}}>Something went wrong and cannot get blogs.</h4>
+        if (!this.state.error) {
+            posts = this.state.posts.map(post => (
+                <Post key={post.id} 
+                title={post.title} 
+                author={post.author}
+                clicked={() => this.postSelectedHandler(post.id)} />
+            ))
+        }
 
         return (
             <div>
