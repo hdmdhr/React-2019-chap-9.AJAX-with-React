@@ -9,7 +9,8 @@ import './Blog.css';
 class Blog extends Component {
     // State
     state = {
-        posts: []
+        posts: [],
+        selectedPostId: null
     }
 
     // Lifecycles
@@ -24,11 +25,17 @@ class Blog extends Component {
         })
     }
 
+    // Callback Methods
+    postSelectedHandler = id => {
+        this.setState({selectedPostId: id})
+    }
+
     render () {
         const posts = this.state.posts.map(post => (
             <Post key={post.id} 
             title={post.title} 
-            author={post.author} />
+            author={post.author}
+            clicked={() => this.postSelectedHandler(post.id)} />
         ))
 
         return (
@@ -37,7 +44,7 @@ class Blog extends Component {
                     {posts}
                 </section>
                 <section>
-                    <FullPost />
+                    <FullPost id={this.state.selectedPostId} />
                 </section>
                 <section>
                     <NewPost />
