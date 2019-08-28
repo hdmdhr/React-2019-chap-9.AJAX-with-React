@@ -1,0 +1,5 @@
+9.199:
+axios.interceptors will affect all HTTP requests & responses. Need to return requestConfig & Promise.reject(error) to continue to send out request or handle error.
+
+9.200:
+Remove all axios.interceptors code.
