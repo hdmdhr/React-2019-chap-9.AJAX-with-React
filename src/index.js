@@ -5,6 +5,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 
+
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
+axios.defaults.headers.common['Authorization'] = 'Auth Token'
+axios.defaults.headers.post['Content-Type'] = 'application/json'
+
 const reqInterceptor = axios.interceptors.request.use(reqConfig => {
     console.log("REQ CONFIG",reqConfig);
     // can edit request before return (sending)

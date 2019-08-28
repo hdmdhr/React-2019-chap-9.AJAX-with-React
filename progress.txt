@@ -3,3 +3,6 @@ axios.interceptors will affect all HTTP requests & responses. Need to return req
 
 9.200:
 Remove all axios.interceptors code.
+
+9.201:
+Save url or global config in -- axios.defaults.baseURL, or common header, or just post / patch header.
