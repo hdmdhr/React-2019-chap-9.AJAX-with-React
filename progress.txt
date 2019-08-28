@@ -6,3 +6,6 @@ Remove all axios.interceptors code.
 
 9.201:
 Save url or global config in -- axios.defaults.baseURL, or common header, or just post / patch header.
+
+9.202:
+Create customized axios instance, import and use in Blog.js. Interceptors set on default axios will not work on the customized axios instance.
