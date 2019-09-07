@@ -9,3 +9,6 @@ Save url or global config in -- axios.defaults.baseURL, or common header, or jus
 
 9.202:
 Create customized axios instance, import and use in Blog.js. Interceptors set on default axios will not work on the customized axios instance.
+
+11.217:
+Create navigation bar, add style. Now each li will lead to home page.
