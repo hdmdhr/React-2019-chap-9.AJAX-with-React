@@ -18,3 +18,9 @@ npm i react-router, react-router-dom. In App.js, wrap everything in <BrowserRout
 
 220:
 Remove post from Blog.js, create a <Posts> component to only display on home route.
+
+221:
+Explore basic routing feature using `render` keyword of react-router-dom. Default behavior is to detect path start with the specified string, use keyword `exact` to override this.
+
+222:
+Use `component` keyword to render a certain component for specified route path.
