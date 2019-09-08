@@ -15,3 +15,6 @@ Create navigation bar, add style. Now each li will lead to home page.
 
 218:
 npm i react-router, react-router-dom. In App.js, wrap everything in <BrowserRouter>. Restructure folder for easy routing.
+
+220:
+Remove post from Blog.js, create a <Posts> component to only display on home route.
