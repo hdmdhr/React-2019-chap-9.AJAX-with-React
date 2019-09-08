@@ -24,3 +24,6 @@ Explore basic routing feature using `render` keyword of react-router-dom. Defaul
 
 222:
 Use `component` keyword to render a certain component for specified route path.
+
+223:
+Render NewPost in '/new-post' route. Bug: Reloading pages every time goes to a new route.
