@@ -29,4 +29,7 @@ Use `component` keyword to render a certain component for specified route path.
 Render NewPost in '/new-post' route. Bug: Reloading pages every time goes to a new route.
 
 224:
-Use `Link` from react-router-dom to replace <a></a>, it prevents default browser redirect behavior. Explore some configuration options o `Link`.
+Use `Link` from react-router-dom to replace <a></a>, it prevents default browser redirect behavior. Explore some configuration options of `Link`.
+
+225:
+Explore props that <Route> provided.

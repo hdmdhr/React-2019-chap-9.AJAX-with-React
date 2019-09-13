@@ -11,6 +11,12 @@ class NewPost extends Component {
         author: 'Max'
     }
 
+    // Lifecycles
+    componentDidMount() {
+        console.log(this.props);
+        
+    }
+
     // Callback Methods
     postBlogHandler = () => {
         const newBlog = {

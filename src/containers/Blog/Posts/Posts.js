@@ -14,6 +14,8 @@ class Posts extends Component {
 
     // Lifecycles
     componentDidMount() {
+        console.log(this.props);
+        
         axiosInstance
             .get('/posts')
             .then(res => {
