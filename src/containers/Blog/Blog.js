@@ -14,12 +14,14 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
+                            {/* use Link instead of href to avoid reloading of the app */}
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to={{pathname: '/new-post', hash: '#goToSomeId', search: '?query-string=true'}}>New Post</Link></li>
                         </ul>
                     </nav>
                 </header>
                 
+                {/* need exact keyword here to detect exactly '/' path, if not specified, it detects paths start with '/' */}
                 <Route path='/' exact component={Posts} />
                 <Route path='/new-post' component={NewPost} />
             </div>
