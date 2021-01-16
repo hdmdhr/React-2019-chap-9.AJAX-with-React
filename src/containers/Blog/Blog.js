@@ -3,7 +3,8 @@ import { Route, Link as NavLink } from 'react-router-dom'
 
 import './Blog.css';
 import Posts from './Posts/Posts';
-import NewPost from './NewPost/NewPost'
+import NewPost from './NewPost/NewPost';
+import FullPost from '../../components/Post/Post';
 
 class Blog extends Component {
 
@@ -19,7 +20,7 @@ class Blog extends Component {
                                 exact
                                 activeClassName='my-active'
                                 activeStyle={{
-                                    color: green,
+                                    color: 'green',
                                     textDecoration: 'underline'
                                 }}>Home</NavLink></li>
                             <li><NavLink to={{
@@ -34,6 +35,7 @@ class Blog extends Component {
                 {/* need exact keyword here to detect exactly '/' path, if not specified, it detects paths start with '/' */}
                 <Route path='/' exact component={Posts} />
                 <Route path='/new-post' component={NewPost} />
+                <Route path='/:postId' exact component={FullPost} />
             </div>
         );
     }
