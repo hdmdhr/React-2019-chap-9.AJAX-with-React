@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link as NavLink } from 'react-router-dom'
 
 import './Blog.css';
 import Posts from './Posts/Posts';
@@ -15,12 +15,18 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             {/* use Link instead of href to avoid reloading of the app */}
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to={{
+                            <li><NavLink to='/'
+                                exact
+                                activeClassName='my-active'
+                                activeStyle={{
+                                    color: green,
+                                    textDecoration: 'underline'
+                                }}>Home</NavLink></li>
+                            <li><NavLink to={{
                                 pathname: '/new-post',  // by default is absolute path, to build relative path, use props.match.url + '/new'
                                 hash: '#goToSomeId',
                                 search: '?query-string=true'
-                            }}>New Post</Link></li>
+                            }}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
