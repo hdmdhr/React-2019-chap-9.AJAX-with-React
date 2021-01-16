@@ -7,7 +7,7 @@ import NewPost from './NewPost/NewPost'
 
 class Blog extends Component {
 
-    render () {
+    render() {
 
         return (
             <div className='Blog'>
@@ -16,11 +16,15 @@ class Blog extends Component {
                         <ul>
                             {/* use Link instead of href to avoid reloading of the app */}
                             <li><Link to='/'>Home</Link></li>
-                            <li><Link to={{pathname: '/new-post', hash: '#goToSomeId', search: '?query-string=true'}}>New Post</Link></li>
+                            <li><Link to={{
+                                pathname: '/new-post',  // by default is absolute path, to build relative path, use props.match.url + '/new'
+                                hash: '#goToSomeId',
+                                search: '?query-string=true'
+                            }}>New Post</Link></li>
                         </ul>
                     </nav>
                 </header>
-                
+
                 {/* need exact keyword here to detect exactly '/' path, if not specified, it detects paths start with '/' */}
                 <Route path='/' exact component={Posts} />
                 <Route path='/new-post' component={NewPost} />
