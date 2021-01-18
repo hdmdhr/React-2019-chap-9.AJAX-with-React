@@ -33,20 +33,18 @@ class Posts extends Component {
 
     // Callback Methods
     postSelectedHandler = id => {
-        this.props.history.push({ pathname: '/' + id });
-        // this.props.history.push('/' + id);
+        this.setState({ selectedPostId: id })
     }
 
     render() {
         let posts = <h4 style={{ textAlign: 'center', color: 'red' }}>Something went wrong and cannot get blogs.</h4>
         if (!this.state.error) {
             posts = this.state.posts.map(post => (
-                // <Link to={'/' + post.id} key={post.id}>
-                <Post key={post.id}
-                    title={post.title}
-                    author={post.author}
-                    clicked={() => this.postSelectedHandler(post.id)} />
-                // </Link>
+                <Link to={'/' + post.id} key={post.id}>
+                    <Post title={post.title}
+                        author={post.author}
+                        clicked={() => this.postSelectedHandler(post.id)} />
+                </Link>
             ))
         }
 
