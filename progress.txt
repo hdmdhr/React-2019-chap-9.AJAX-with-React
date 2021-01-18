@@ -33,3 +33,16 @@ Use `Link` from react-router-dom to replace <a></a>, it prevents default browser
 
 225:
 Explore props that <Route> provided.
+
+Parsing Query Parameters & the Fragment (hash):
+Pass like this
+<Link 
+    to={‌{
+        pathname: '/my-path',
+        search: '?start=5',
+        hash: 'someId'
+    }}
+    >Go to Start</Link>
+Get by
+props.location.search
+props.location.hash
