@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link as NavLink } from 'react-router-dom'
+import { Route, NavLink, Switch } from 'react-router-dom'
 
 import './Blog.css';
 import Posts from './Posts/Posts';
@@ -33,9 +33,11 @@ class Blog extends Component {
                 </header>
 
                 {/* need exact keyword here to detect exactly '/' path, if not specified, it detects paths start with '/' */}
-                <Route path='/' exact component={Posts} />
-                <Route path='/new-post' component={NewPost} />
-                <Route path='/:postId' exact component={FullPost} />
+                <Switch>
+                    <Route path='/' exact component={Posts} />
+                    <Route path='/new-post' component={NewPost} />
+                    <Route path='/:postId' exact component={FullPost} />
+                </Switch>
             </div>
         );
     }
