@@ -11,15 +11,14 @@ class FullPost extends Component {
     }
 
     // Lifecycles
-    componentDidUpdate() {
-        if (this.props.id) {    
-                
-            if (!this.state.loadedPost || 
-                (this.state.loadedPost && 
-                this.state.loadedPost.id !== this.props.id)) {
-                    axios.get(`/posts/${this.props.id}`)
+    componentDidMount() {
+        const id = this.props.match.params.postId
+
+        if (id) {
+            if (!this.state.loadedPost || this.state.loadedPost.id !== id) {
+                axios.get(`/posts/${id}`)
                     .then(res => {
-                        this.setState({loadedPost: res.data})            
+                        this.setState({ loadedPost: res.data })
                     })
             }
 
@@ -29,15 +28,15 @@ class FullPost extends Component {
     // Callback Methods
     deleteBlogHandler = () => {
         axios.delete(`/posts/${this.props.id}`)
-        .then(res => {
-            console.log(res);            
-        })
+            .then(res => {
+                console.log(res);
+            })
     }
 
-    render () {
-        let post = <p style={{textAlign: 'center'}}>Please select a Post!</p>;
-        if (this.props.id && this.state.loadedPost) {
-        
+    render() {
+        let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
+        if (this.state.loadedPost) {
+
             post = (
                 <div className="FullPost">
                     <h1>{this.state.loadedPost.title}</h1>
