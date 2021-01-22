@@ -12,22 +12,31 @@ class FullPost extends Component {
 
     // Lifecycles
     componentDidMount() {
+        this._loadData()
+    }
+
+    componentDidUpdate() {
+        this._loadData()
+    }
+
+    _loadData() {
         const id = this.props.match.params.postId
 
         if (id) {
-            if (!this.state.loadedPost || this.state.loadedPost.id !== id) {
+            if (!this.state.loadedPost || this.state.loadedPost.id != id) {
                 axios.get(`/posts/${id}`)
                     .then(res => {
                         this.setState({ loadedPost: res.data })
                     })
             }
-
         }
     }
 
     // Callback Methods
     deleteBlogHandler = () => {
-        axios.delete(`/posts/${this.props.id}`)
+        const id = this.props.match.params.postId
+
+        axios.delete(`/posts/${id}`)
             .then(res => {
                 console.log(res);
             })

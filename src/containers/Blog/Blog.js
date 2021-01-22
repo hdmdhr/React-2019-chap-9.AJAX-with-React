@@ -4,7 +4,6 @@ import { Route, NavLink, Switch } from 'react-router-dom'
 import './Blog.css';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
 
@@ -16,7 +15,7 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             {/* use Link instead of href to avoid reloading of the app */}
-                            <li><NavLink to='/'
+                            <li><NavLink to='/posts'
                                 exact
                                 activeClassName='my-active'
                                 activeStyle={{
@@ -34,9 +33,8 @@ class Blog extends Component {
 
                 {/* need exact keyword here to detect exactly '/' path, if not specified, it detects paths start with '/' */}
                 <Switch>
-                    <Route path='/' exact component={Posts} />
                     <Route path='/new-post' component={NewPost} />
-                    <Route path='/:postId' exact component={FullPost} />
+                    <Route path='/posts' component={Posts} />
                 </Switch>
             </div>
         );
